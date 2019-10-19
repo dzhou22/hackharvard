@@ -19,7 +19,7 @@
         		<ul>
         			<li><a href="index.php">Home</a></li>
         			<li><a href="tutors.php">Tutors</a></li>
-        			<li><a href="#">Students</a></li>
+        			<li><a href="students.php">Students</a></li>
         			<li><a href="#">Settings</a></li>
         		</ul>
         	</nav>
