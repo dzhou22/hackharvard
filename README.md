@@ -19,4 +19,10 @@ CREATE TABLE enrollments (
     userType TINYTEXT NOT NULL,
     nameClasses TEXT NOT NULL
 );
+
+CREATE TABLE profileimg (
+	id int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    idUsers int(11) NOT NULL,
+    status int(11) NOT NULL
+);
 '''
