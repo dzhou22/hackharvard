@@ -3,6 +3,7 @@ session_start();
 
 if (isset($_POST['addclass-submit'])) {
     require 'dbh.inc.php';
+	require 'util.inc.php';
 
     if (isset($_SESSION['userId'])) {
 	    $classid = $_POST['classid'];
@@ -14,19 +15,7 @@ if (isset($_POST['addclass-submit'])) {
 		    header("Location: ../myclasses.php?error=emptyrole");
 			exit();
 		} else {
-		    // Get class name
-		  	$sql = "SELECT nameClasses FROM classes WHERE idClasses=?";
-			$stmt = mysqli_stmt_init($conn);
-            if (!mysqli_stmt_prepare($stmt, $sql)) {
-                header("Location: ../myclasses.php?error=sqlerror");
-                exit();
-            } else { // statement is valid
-                mysqli_stmt_bind_param($stmt, "s", $classid);
-                mysqli_stmt_execute($stmt);
-                $result = mysqli_stmt_get_result($stmt);
-			}
-			$res = mysqli_fetch_assoc($result);
-			$classname = $res['nameClasses'];
+			$classname = class_id_to_name($classid, $conn);
 
 			// Add class or throw error
     	    $sql = "SELECT * FROM enrollments WHERE uidUsers=? AND userType=? AND nameClasses=?";

@@ -1,5 +1,6 @@
 <?php
     require "includes/dbh.inc.php";
+	require "includes/util.inc.php";
 	session_start();
 
 	if (isset($_SESSION['userId'])) {
@@ -33,7 +34,7 @@
                 <h1>My Classes</h1>
 	    		    <?php
 	    			    if (isset($_SESSION['userId'])) {
-						   	echo '<h2>Add Class</h2>';
+						   	echo '<h2>Add Classes</h2>';
 							// Form to add a class
 							echo '<form action="includes/addclass.inc.php" method="post">
 	            				<select name="classid">';
@@ -71,8 +72,11 @@
                                     if ($res['userType']=='student') {
                                         echo "<tr>";
                                         echo "<td>".$res['nameClasses']."</td>";
-                                        echo '<td><form action="includes/removeclass.inc.php" method="post">
-    			                            <button type="submit" name="removeclass-submit">Remove</button>
+                                        echo '<td><form action="includes/removeclass.inc.php" method="post">';
+										echo '<input type="hidden" name="classid" value='
+											.class_name_to_id($res['nameClasses'], $conn).'>';
+										echo '<input type="hidden" name="role" value="student">';
+    			                        echo '<button type="submit" name="removeclass-submit">Remove</button>
     			            				</form></td>';
                                         echo "</tr>";
                                     }   
@@ -86,13 +90,16 @@
                                         <th>Class</th>
                                         <th></th>
                                     </tr>';
-								mysql_data_seek($result_enroll, 0);
+								mysqli_data_seek($result_enroll, 0);
                                 while($res=mysqli_fetch_assoc($result_enroll)) {
                                     if ($res['userType']=='tutor') {
                                         echo "<tr>";
                                         echo "<td>".$res['nameClasses']."</td>";
-                                        echo '<td><form action="includes/removeclass.inc.php" method="post">
-    			                            <button type="submit" name="removeclass-submit">Remove</button>
+                                        echo '<td><form action="includes/removeclass.inc.php" method="post">';
+										echo '<input type="hidden" name="classid" value='
+											.class_name_to_id($res['nameClasses'], $conn).'>';
+										echo '<input type="hidden" name="role" value="tutor">';
+    			                        echo '<button type="submit" name="removeclass-submit">Remove</button>
     			            				</form></td>';
                                         echo "</tr>";
                                     }   
