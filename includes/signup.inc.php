@@ -66,22 +66,23 @@ if (isset($_POST['signup-submit'])) {
                     header("Location: ../signup.php?error=sqlerror");
                     exit();
                 } else {
-                    $hashedPwd = password_hash($password, PASSWORD_DEFAULT)
+                    $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
 
                     mysqli_stmt_bind_param($stmt, "ssss", $username, $email, $hashedPwd, $role);
                     mysqli_stmt_execute($stmt);
                     header("Location: ../signup.php?signup=success");
                     exit();
                 }
+            }
         }
-
-
     }
 
     mysqli_stmt_close($stmt);
     mysqli_close($conn);
 
 } else {
+
     header("Location: ../signup.php");
     exit();
+
 }
