@@ -20,7 +20,8 @@
         			<li><a href="index.php">Home</a></li>
         			<li><a href="tutors.php">Tutors</a></li>
         			<li><a href="students.php">Students</a></li>
-        			<li><a href="#">Settings</a></li>
+					<li><a href="myclasses.php">My Classes</a></li>
+        			<li><a href="profile.php">Profile</a></li>
         		</ul>
         	</nav>
 			<div>
