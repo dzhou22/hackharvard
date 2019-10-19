@@ -36,17 +36,21 @@
 						   	echo '<h2>Add Class</h2>';
 							// Form to add a class
 							echo '<form action="includes/addclass.inc.php" method="post">
-	            				<select name="class">';
+	            				<select name="classid">';
 	            			echo '<option disabled selected value="none">- Select Class -</option>';
 							while ($res = mysqli_fetch_assoc($result_classes)) {
 							    echo '<option value='.$res['idClasses'].'>'.$res['nameClasses'].'</option>';
 							}
 	            			echo '</select>';
 							echo '<select name="role">
-						        <option disabled selected value="none">- Select Role -</option>
-								<option value="student">Student</option>
-								<option value="tutor">Tutor</option>
-								</select>';
+						        <option disabled selected value="none">- Select Role -</option>';
+							if ($_SESSION['userType'] == 'student' || $_SESSION['userType'] == 'both') {
+								echo '<option value="student">Student</option>';
+							}
+							if ($_SESSION['userType'] == 'tutor' || $_SESSION['userType'] == 'both') {
+								echo '<option value="tutor">Tutor</option>';
+							}
+							echo '</select>';
 							echo '<button type="submit" name="addclass-submit">Add</button>';
 							echo '</form>';
 

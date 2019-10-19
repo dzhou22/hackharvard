@@ -14,7 +14,7 @@ if (isset($_POST['createclass-submit'])) {
 	    $sql = "SELECT * FROM classes WHERE nameClasses=?";
 		$stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
-            header("Location: ../signup.php?error=sqlerror");
+            header("Location: ../myclasses.php?error=sqlerror");
             exit();
         } else { // statement is valid
             // check if classname already exists
