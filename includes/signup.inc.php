@@ -35,7 +35,7 @@ if (isset($_POST['signup-submit'])) {
         exit();
     }
     //Error 6: no role selected
-    else if ($role == 'none') {
+    else if (empty($role)) {
         header("Location: ../signup.php?error=invalidrole&username=".$username."&mail=".$email."&role=".$role);
         exit();
     }
