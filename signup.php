@@ -13,7 +13,7 @@
 						<option disabled selected value="none">- Select -</option>
 						<option value="student">Student</option>
 						<option value="tutor">Tutor</option>
-						<option value="Both">Both</option>
+						<option value="both">Both</option>
 					</select>
                     <input type="password" name="pwd" placeholder="Password">
                     <input type="password" name="pwd2" placeholder="Retype Password">
