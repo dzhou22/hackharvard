@@ -9,7 +9,7 @@
 				<form action="includes/signup.inc.php" method = "post">
                     <input type="text" name="username" placeholder="Username">
                     <input type="text" name="mail" placeholder="E-mail">
-					<select>
+					<select name="role">
 						<option disabled selected value="none">- Select -</option>
 						<option value="student">Student</option>
 						<option value="tutor">Tutor</option>
