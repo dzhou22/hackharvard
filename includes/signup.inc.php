@@ -21,12 +21,12 @@ if (isset($_POST['signup-submit'])) {
     }
     //Error 3: invalid email
     else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        header("Location: ../signup.php?error=invalidmails&username=".$username);
+        header("Location: ../signup.php?error=invalidmail&username=".$username);
         exit();
     }
     //Error 4: invalid username
     else if (!preg_match("/^[a-zA-Z0-9]*$/", $username)) {
-        header("Location: ../signup.php?error=invalidusernames&mail=".$email);
+        header("Location: ../signup.php?error=invalidusername&mail=".$email);
         exit();
     }
     //Error 5: user typed 2 different passwords
