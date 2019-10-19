@@ -15,7 +15,7 @@
         		</a>
         		<ul>
         			<li><a href="index.php">Home</a></li>
-        			<li><a href="#">Tutors</a></li>
+        			<li><a href="tutors.php">Tutors</a></li>
         			<li><a href="#">Students</a></li>
         			<li><a href="#">Settings</a></li>
         		</ul>
