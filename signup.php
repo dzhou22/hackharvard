@@ -21,7 +21,7 @@
                         } else if ($_GET['error'] == "invalidrole") {
                             echo '<p>Please select your role.</p>';
                         } else if ($_GET['error'] == "usernametaken") {
-                            echo '<p>Username is taken. Please choose another.</p>';
+                            echo '<p>Username/email is taken. Please choose another.</p>';
                         }
                     } else if (isset($_GET["signup"])) {
                         if ($_GET["signup"] == "success") {

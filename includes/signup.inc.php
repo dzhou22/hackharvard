@@ -42,15 +42,15 @@ if (isset($_POST['signup-submit'])) {
     //Error 7: user already exists in database
     else {
         
-        $sql = "SELECT uidUsers FROM users WHERE uidUsers=?";
+        $sql = "SELECT uidUsers FROM users WHERE uidUsers=? OR emailUsers=?";
         $stmt = mysqli_stmt_init($conn);
         //check if sql statement is valid
         if (!mysqli_stmt_prepare($stmt, $sql)) {
             header("Location: ../signup.php?error=sqlerror");
             exit();
         } else { //statement is valid
-            //check if username is already being used
-            mysqli_stmt_bind_param($stmt, "s", $username);
+            //check if username or email is already being used
+            mysqli_stmt_bind_param($stmt, "ss", $username, $email);
             mysqli_stmt_execute($stmt);
             mysqli_stmt_store_result($stmt);
             $resultCheck = mysqli_stmt_num_rows($stmt);
