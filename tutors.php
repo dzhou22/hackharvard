@@ -31,7 +31,7 @@
                     
                         while($tutor=mysqli_fetch_assoc($result)) {
                             
-                            if ($tutor['userType']=='tutor') {
+                            if ($tutor['userType']=='tutor' || $tutor['userType']=='both') {
                                 echo "<tr>";
                                 echo "<td>".$tutor['uidUsers']."</td>";
                                 echo "<td>".$tutor['emailUsers']."</td>";
