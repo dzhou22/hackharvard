@@ -17,7 +17,7 @@
 
     <main>
         <head>
-            <title>Tutors</title>
+            <title>Students</title>
         </head>
         <body>
             <table width="600" border="1" cellpadding="1" cellspacing="1">
