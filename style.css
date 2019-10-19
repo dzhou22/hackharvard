@@ -1,0 +1,60 @@
+nav {
+	background-color: #333;
+	float: left;
+	width: 100%;
+}
+
+nav.nav-header-main ul {
+	float: left;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
+}
+
+nav.nav-header-main li {
+	float: left;
+}
+
+nav.nav-header-main li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 16px 16px;
+	text-decoration: none;
+}
+
+form.header-form {
+	padding: 10px 16px;
+	float: right;
+}
+
+a.header-signup {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 16px 16px;
+	text-decoration: none;
+	float: right;
+}
+
+a.header-signup:hover {
+	background-color: #111;
+}
+
+li.active {
+	background-color: #4CAF50;
+	color: white;
+}
+
+/* Change the link color to #111 (black) on hover */
+nav.nav-header-main li a:hover {
+	background-color: #111;
+} 
+
+a.header-logo img {
+	float: left;
+	height: 30px;
+	padding: 10px 10px;
+}

@@ -107,7 +107,7 @@
 								echo '</table>';
 							}
 	    			    } else {
-						  	echo "Please log in";
+						  	echo "<p>Please log in</p>";
 	    				}
 	    			?>
 			</section>

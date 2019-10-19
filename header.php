@@ -2,6 +2,16 @@
 	if (session_status() == PHP_SESSION_NONE) {
         session_start();
 	}
+
+	function header_entry($pagename, $pagelabel) {
+	    $currentpage = basename($_SERVER['SCRIPT_FILENAME']);
+	    if ($currentpage == $pagename) {
+	        $classname = 'active';
+	    } else {
+	        $classname = '';
+	    }
+	    return '<li class="'.$classname.'"><a href="'.$pagename.'">'.$pagelabel.'</a></li>';
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -10,38 +20,38 @@
 		<meta name="description" content="Connecting students with tutors">
 		<meta name=viewport content="width-device-width, initial-scale=1">
 		<title></title>
-		<!--<link rel="stylesheet" href="style.css">-->
+		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
-        <header>
-        	<nav>
-        		<a href="#">
-        			<img src="img/logo.png" alt="logo">
+        <header style="width: 100%">
+        	<nav class="nav-header-main">
+        		<a class="header-logo" href="index.php">
+        			<img src="img/logo.jpeg" alt="logo">
         		</a>
         		<ul>
-        			<li><a href="index.php">Home</a></li>
-        			<li><a href="tutors.php">Tutors</a></li>
-        			<li><a href="students.php">Students</a></li>
-					<li><a href="myclasses.php">My Classes</a></li>
-        			<li><a href="profile.php">Profile</a></li>
+					<?php
+						echo header_entry("index.php", "Home");
+						echo header_entry("tutors.php", "Tutors");
+						echo header_entry("students.php", "Students");
+						echo header_entry("myclasses.php", "My Classes");
+						echo header_entry("profile.php", "Profile");
+					?>
         		</ul>
-        	</nav>
-			<div>
 			    <?php
 				    if (isset($_SESSION['userId'])) {
-				        echo '<form action="includes/logout.inc.php" method="post">
+				        echo '<form class="header-form" action="includes/logout.inc.php" method="post">
 				            <button type="submit" name="logout-submit">Logout</button>
 				            </form>';
 				    } else {
-				        echo '<form action="includes/login.inc.php" method="post">
-				        <input type="text" name="mailuid" placeholder="Username/E-mail...">
-				  	    <input type="password" name="pwd" placeholder="Password...">
-				  	    <button type="submit" name="login-submit">Login</button>
-				        </form>
-				        <a href="signup.php">Signup</a>';
+				        echo '<a class="header-signup" href="signup.php">Signup</a>';
+				        echo '<form class="header-form" action="includes/login.inc.php" method="post">
+							<input type="text" name="mailuid" placeholder="Username/E-mail...">
+				  			<input type="password" name="pwd" placeholder="Password...">
+				  			<button type="submit" name="login-submit">Login</button>
+				            </form>';
 					}
 				?>
-			</div>
+        	</nav>
         </header>
 	</body>
 </html>

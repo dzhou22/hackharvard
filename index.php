@@ -3,15 +3,18 @@
 ?>
 
 	<main>
-		<div>
-			<section>
-				<?php
-				    if (isset($_SESSION['userId'])) {
-					    echo '<p>You are logged in!<p>';
-					} else {
-					    echo '<p>You are logged out!<p>';
-					}
-				?>
-			</section>
-		</div>
+        <head>
+            <title>Home</title>
+        </head>
+        <body>
+			<div>
+   	    		<?php
+   	    		    if (isset($_SESSION['userId'])) {
+   	    			    echo '<p>You are logged in!<p>';
+   	    			} else {
+   	    			    echo '<p>You are logged out!<p>';
+   	    			}
+   	    		?>
+			</div>
+		</body>
 	</main>
