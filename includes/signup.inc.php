@@ -5,7 +5,7 @@ if (isset($_POST['signup-submit'])) {
 
     $username = $_POST['username'];
     $email = $_POST['mail'];
-    $role = $_POST['role']
+    $role = $_POST['role'];
     $password = $_POST['pwd'];
     $passwordRepeat = $_POST['pwd2'];
 
@@ -77,7 +77,7 @@ if (isset($_POST['signup-submit'])) {
 
 
     }
-    
+
     mysqli_stmt_close($stmt);
     mysqli_close($conn);
 
