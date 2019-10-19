@@ -11,7 +11,7 @@ if (isset($_POST['signup-submit'])) {
 
     //Error 1: empty fields
     if (empty($username) || empty($email) || empty($password) || empty($passwordRepeat)) {
-        header("Location: ../signup.php?error=emptyfields&username=".$username."&mail=".$email);
+        header("Location: ../signup.php?error=emptyfields&username=".$username."&mail=".$email."&role=".$role);
         exit();
     } 
     //Error 2: invalid email AND invalid username
@@ -31,12 +31,12 @@ if (isset($_POST['signup-submit'])) {
     }
     //Error 5: user typed 2 different passwords
     else if ($passwordRepeat !== $password) {
-        header("Location: ../signup.php?error=passwordcheck&username=".$username."&mail=".$email);
+        header("Location: ../signup.php?error=passwordcheck&username=".$username."&mail=".$email."&role=".$role);
         exit();
     }
     //Error 6: no role selected
     else if ($role == 'none') {
-        header("Location: ../signup.php?error=invalidrole&username=".$username."&mail=".$email);
+        header("Location: ../signup.php?error=invalidrole&username=".$username."&mail=".$email."&role=".$role);
         exit();
     }
     //Error 7: user already exists in database
@@ -55,7 +55,7 @@ if (isset($_POST['signup-submit'])) {
             mysqli_stmt_store_result($stmt);
             $resultCheck = mysqli_stmt_num_rows($stmt);
             if ($resultCheck > 0) {
-                header("Location: ../signup.php?error=usernametaken&mail=".$email);
+                header("Location: ../signup.php?error=usernametaken&mail=".$email."&role=".$role);
             exit();
             } else { //username is not being used, so we can add a new user to database
 
