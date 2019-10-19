@@ -8,6 +8,17 @@
 			<section>
                 <!-- <h1>Profile</h1> -->
                 <?php
+
+                    if (isset($_SESSION['userId'])) {
+                        echo "<h1>Welcome, ".$_SESSION['userUid']."</h1>";
+                        /* echo "<form action='upload.php' method='POST' enctype='multipart/form-data'>
+                            <input type='file' name='file'>
+                            <button type='submit' name='submit-photo'>UPLOAD</button>
+                            </form>"; */
+                    } else {
+                        header("Location: ../signup.php");
+                        exit();
+                    }
                     // display profile picture:
                     $sql = "SELECT uidUsers FROM users WHERE uidUsers=?";
                     $stmt = mysqli_stmt_init($conn);
@@ -23,9 +34,9 @@
                         $resultCheck = mysqli_stmt_num_rows($stmt);
                         if ($resultCheck > 0) { //if it is being used...
                             $id = $_SESSION['userId'];
-                            $sqlImg = "SELECT * FROM profileimg WHERE userid=?";
+                            $sqlImg = "SELECT * FROM profileimg WHERE idUsers=?";
                             $stmt = mysqli_stmt_init($conn);
-                            if (!mysqli_stmt_prepare($stmt, $sql)) {
+                            if (!mysqli_stmt_prepare($stmt, $sqlImg)) {
                                 header("Location: ../profile.php?error=sqlerror");
                                 exit();
                             } else {
@@ -35,7 +46,7 @@
                                 while ($rowImg = mysqli_fetch_assoc($resultImg)) {
                                     echo "<div>";
                                         if ($rowImg['status'] == 0) {
-                                            echo "<img src='uploads/profile".$id.".jpg'>";
+                                            echo "<img src='uploads/profile".$id.".jpg?'".mt_rand().">";
                                         } else {
                                             echo "<img src='uploads/profiledefault.jpg'>";
                                         }
@@ -46,17 +57,6 @@
                         } else {
                             echo "Error: User not found.";
                         }
-                    }
-
-                    if (isset($_SESSION['userId'])) {
-                        echo "<h1>Welcome, ".$_SESSION['userUid']."</h1>";
-                        echo "<form action='upload.php' method='POST' enctype='multipart/form-data'>
-                            <input type='file' name='file'>
-                            <button type='submit' name='submit-photo'>UPLOAD</button>
-                            </form>";
-                    } else {
-                        header("Location: ../signup.php");
-                        exit();
                     }
                     
                     //Error handling:
