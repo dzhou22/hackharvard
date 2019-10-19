@@ -56,7 +56,7 @@ if (isset($_POST['signup-submit'])) {
             $resultCheck = mysqli_stmt_num_rows($stmt);
             if ($resultCheck > 0) {
                 header("Location: ../signup.php?error=usernametaken&mail=".$email."&role=".$role);
-            exit();
+                exit();
             } else { //username is not being used, so we can add a new user to database
 
                 $sql  = "INSERT INTO users (uidUsers, emailUsers, pwdUsers, userType) VALUES (?, ?, ?, ?)";
@@ -70,8 +70,38 @@ if (isset($_POST['signup-submit'])) {
 
                     mysqli_stmt_bind_param($stmt, "ssss", $username, $email, $hashedPwd, $role);
                     mysqli_stmt_execute($stmt);
-                    header("Location: ../signup.php?signup=success");
+                    //header("Location: ../signup.php?signup=success");
+                    //exit();
+                }
+
+                //update profileimg database with new user
+                $sql = "SELECT * FROM users WHERE uidUsers=?";
+                $stmt = mysqli_stmt_init($conn);
+                //check if sql statement is valid
+                if (!mysqli_stmt_prepare($stmt, $sql)) {
+                    header("Location: ../profile.php?error=sqlerror");
                     exit();
+                } else {
+                    mysqli_stmt_bind_param($stmt, "s", $username);
+                    mysqli_stmt_execute($stmt);
+                    $result = mysqli_stmt_get_result($stmt);
+                    if (mysqli_num_rows($result) > 0) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $userid = $row['idUsers'];
+                            $sql  = "INSERT INTO profileimg (idUsers, status) VALUES (?, 1)";
+                            $stmt = mysqli_stmt_init($conn);
+                            if (!mysqli_stmt_prepare($stmt, $sql)) {
+                                header("Location: ../signup.php?error=sqlerror");
+                                exit();
+                            } else {
+                                mysqli_stmt_bind_param($stmt, 's', $userid);
+                                mysqli_stmt_execute($stmt);
+                                header("Location: ../signup.php?signup=success");
+                                exit();
+                            }
+                            
+                        }
+                    }
                 }
             }
         }
