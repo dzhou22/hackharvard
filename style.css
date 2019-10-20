@@ -173,12 +173,13 @@ div {
 }
 
 .selectRed {
-	width: 8cm;
+	width: 7.8cm;
  	border: 2px solid #A51C30;
 	font-family: "TruenoLight";
 	font-size: 17px;
 	margin-top: .25in;
 	margin-bottom: -.25in;
+	margin-left: -.04em;
 }
 
 .buttonRed {
