@@ -17,7 +17,6 @@
                             <button type='submit' name='submit-photo'>UPLOAD</button>
                             </form>"; */
                     } else {
-                        
                         // display profile picture:
                         $sql = "SELECT uidUsers FROM users WHERE uidUsers=?";
                         $stmt = mysqli_stmt_init($conn);
@@ -81,15 +80,26 @@
                             } else if ($_GET["update"] == "email") {
                                 echo '<p  class="success">Email updated!</p>';
                             }
-                        } 
+                        }
+						
                         echo '<h2 class="header3Centered">Update Personal Info</h2>
                 
                         <!-- Profile Picture -->
-                        <form class="formCentered2" action="upload.php" method="POST" enctype="multipart/form-data">
+						<form class="formCentered2" action="upload.php" method="POST" enctype="multipart/form-data">
                             <input type="file" name="file">
                             <button class="buttonRed" type="submit" name="submit-photo">Upload</button>
                         </form>
         
+                        <form class="formCentered2" action="includes/updateprofile.inc.php" method = "post">   
+                            <select name="role" class="selectRed">
+                                <option disabled selected value="none">- Select Role-</option>
+                                <option value="student">Student</option>
+                                <option value="tutor">Tutor</option>
+                                <option value="both">Both</option>
+                            </select>
+                            <button class="buttonRed" type="submit" name="update-submit">Update Role</button>
+                        </form>
+
                         <form class="formCentered2" action="includes/updateprofile.inc.php" method = "post">
                             <input class="inputRed" type="text" name="username" placeholder="Username">
                             <button class="buttonRed" type="submit" name="update-submit">Update Username</button>
@@ -99,20 +109,10 @@
                             <input class="inputRed" type="text" name="mail" placeholder="E-mail">
                             <button class="buttonRed" type="submit" name="update-submit">Update E-mail</button>
                         </form>
-        
-                        <form class="formCentered2" action="includes/updateprofile.inc.php" method = "post">   
-                            <select name="role">
-                                <option disabled selected value="none">- Select Role-</option>
-                                <option value="student">Student</option>
-                                <option value="tutor">Tutor</option>
-                                <option value="both">Both</option>
-                            </select>
-                            <button class="buttonRed" type="submit" name="update-submit">Update Role</button>
-                        </form>
-        
+                
                         <form class="formCentered2" action="includes/updateprofile.inc.php" method = "post">  
-                            <input class="inputRed" type="password" name="oldPwd" placeholder="Old Password">
-                            <input class="inputRed" type="password" name="newPwd" placeholder="New Password">
+                            <input class="inputRed" type="password" name="oldPwd" placeholder="Old Password"><br>
+                            <input class="inputRed" type="password" name="newPwd" placeholder="New Password"><br>
                             <input class="inputRed" type="password" name="newPwd2" placeholder="Re-type Password">
                             <button class="buttonRed" type="submit" name="update-submit">Update Password</button>
                         </form>';
