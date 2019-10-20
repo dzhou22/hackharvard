@@ -1,5 +1,20 @@
 <?php
-    require "includes/dbh.inc.php";
+	if (isset($_GET['classid'])) {
+	    $search_classid = $_GET['classid'];
+	} else {
+		$search_classid = 'any';
+	}
+
+	function selected_option($classid, $currentid) {
+	    if ($classid == $currentid) {
+		    return 'selected';
+		} else {
+		    return '';
+		}
+	}
+
+	require "includes/dbh.inc.php";
+    require "includes/util.inc.php";
 
     $sql="SELECT * FROM users";
     $stmt = mysqli_stmt_init($conn);
@@ -11,8 +26,10 @@
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
     }
-    require "header.php";
-    require "includes/util.inc.php"
+
+	$result_classes = get_all_classes($conn);
+
+	require "header.php";
 
 ?>
 
@@ -23,9 +40,26 @@
         <body>
 
             <?php
+				echo '<form action="includes/searchstudents.inc.php" method="post">';
+       			echo '<select name="classid">';
+				$selectedstr = selected_option('any', $search_classid);
+       			echo '<option '.$selectedstr.' value="any">Any</option>';
+				while ($res = mysqli_fetch_assoc($result_classes)) {
+					$selectedstr = selected_option($res['idClasses'], $search_classid);
+				    echo '<option '.$selectedstr.' value='.$res['idClasses'].'>'.$res['nameClasses'].'</option>';
+				}
+       			echo '</select>';
+				echo '<button type="submit" name="searchstudents-submit">Select</button>';
+				echo '</form>';
 
                 
                 while($student=mysqli_fetch_assoc($result)) {
+					if ($search_classid !== 'any') {
+					    $is_in_class = user_in_class($search_classid, $student['uidUsers'], 'student', $conn);
+						if (!$is_in_class) {
+						    continue;
+						}
+					}
                     
                     if ($student['userType']=='student' || $student['userType']=='both') {
 /*                                 echo "<tr>";

@@ -86,3 +86,35 @@ function get_classes($username, $role, $conn) {
 	}
 	return $classstr;
 }
+
+function user_in_class($classid, $username, $role, $conn) {
+	$classname = class_id_to_name($classid, $conn);
+  	$sql = "SELECT nameClasses FROM enrollments WHERE uidUsers=? AND userType=?";
+	$stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+	    return '';
+    } else { // statement is valid
+        mysqli_stmt_bind_param($stmt, "ss", $username, $role);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+	}
+	while ($res = mysqli_fetch_assoc($result)) {
+	    if ($res['nameClasses'] == $classname) {
+		    return true;
+		}
+	}
+	return false;
+}
+
+function get_all_classes($conn) {
+	$sql_classes = "SELECT * FROM classes";
+	$stmt = mysqli_stmt_init($conn);
+	if (!mysqli_stmt_prepare($stmt, $sql_classes)) {
+	    header("Location: ./index.php?error=sqlerror");
+		exit();
+	} else {
+	    mysqli_stmt_execute($stmt);
+		$result_classes = mysqli_stmt_get_result($stmt);
+	}
+	return $result_classes;
+}

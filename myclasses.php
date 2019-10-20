@@ -15,14 +15,7 @@
             $result_enroll = mysqli_stmt_get_result($stmt);
 		}
 
-		$sql_classes = "SELECT * FROM classes";
-		if (!mysqli_stmt_prepare($stmt, $sql_classes)) {
-		    header("Location: ./index.php?error=sqlerror");
-			exit();
-		} else {
-		    mysqli_stmt_execute($stmt);
-			$result_classes = mysqli_stmt_get_result($stmt);
-		}
+		$result_classes = get_all_classes($conn);
     }
 
 	require "header.php";
@@ -36,8 +29,8 @@
 	    			    if (isset($_SESSION['userId'])) {
 						   	echo '<h2>Add Classes</h2>';
 							// Form to add a class
-							echo '<form action="includes/addclass.inc.php" method="post">
-	            				<select name="classid">';
+							echo '<form action="includes/addclass.inc.php" method="post">';
+	            			echo '<select name="classid">';
 	            			echo '<option disabled selected value="none">- Select Class -</option>';
 							while ($res = mysqli_fetch_assoc($result_classes)) {
 							    echo '<option value='.$res['idClasses'].'>'.$res['nameClasses'].'</option>';
