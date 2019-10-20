@@ -21,6 +21,7 @@
 		<meta name=viewport content="width-device-width, initial-scale=1">
 		<title></title>
 		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/trueno" type="text/css"/>
 	</head>
 	<body>
         <header style="width: 100%">

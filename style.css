@@ -1,3 +1,4 @@
+
 nav {
 	background-color: #A51C30 ;
 	float: left;
@@ -5,6 +6,7 @@ nav {
 	position: fixed;
 	top: 0;
 	left: 0;
+	font-family: 'TruenoSemiBold';
 }
 
 nav.nav-header-main ul {
@@ -14,6 +16,7 @@ nav.nav-header-main ul {
 	padding: 0;
 	overflow: hidden;
 	background-color: #A51C30 ;
+	font-family: 'TruenoSemiBold';
 }
 
 nav.nav-header-main li {
@@ -26,6 +29,7 @@ nav.nav-header-main li a {
 	text-align: center;
 	padding: 16px 16px;
 	text-decoration: none;
+	text-transform: uppercase;
 }
 
 form.header-form {
@@ -86,4 +90,21 @@ a.header-logo img {
 
 .top-whitespace {
     margin-bottom: 30px;
+}
+
+div {
+	font-family: 'Lora', serif;
+	font-size: 19px;
+}
+
+.cardName{
+	font-family: 'TruenoBold';
+	font-size: 20px;
+	color: black;
+}
+
+.cardEmail {
+	font-family: "TruenoLight";
+	font-size: 14px;
+	color: rgba(0, 0, 0, 0.801);
 }
