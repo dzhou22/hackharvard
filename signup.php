@@ -30,14 +30,14 @@
                     } 
                 ?>
 				<form class="formCentered" action="includes/signup.inc.php" method = "post">
-                    <input class="inputRed" type="text" name="username" placeholder="Username">
-                    <input class="inputRed" type="text" name="mail" placeholder="E-mail">
-					<select name="role">
+					<select class="selectRed" name="role">
 						<option disabled selected value="none">- Select Role -</option>
 						<option value="student">Student</option>
 						<option value="tutor">Tutor</option>
 						<option value="both">Both</option>
 					</select>
+                    <input class="inputRed" type="text" name="username" placeholder="Username">
+                    <input class="inputRed" type="text" name="mail" placeholder="E-mail">
                     <input class="inputRed" type="password" name="pwd" placeholder="Password">
                     <input class="inputRed" type="password" name="pwd2" placeholder="Retype Password">
                     <button class="buttonRed" type="submit" name="signup-submit">Signup</button>
