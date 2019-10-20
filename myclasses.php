@@ -24,7 +24,6 @@
 	<main>
 		<div>
 			<section>
-                <h1 class="header2">My Classes</h1>
 	    		    <?php
 	    			    if (isset($_SESSION['userId'])) {
 						   	echo '<h2>Add Classes</h2>';

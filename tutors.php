@@ -39,7 +39,8 @@
         </head>
         <body>
 		
-                <?php
+            <?php
+        		if (isset($_SESSION['userId'])) {
 					echo '<form action="includes/searchtutors.inc.php" method="post">';
            			echo '<select name="classid">';
 					$selectedstr = selected_option('any', $search_classid);
@@ -74,9 +75,12 @@
                                 echo '</div>';
                             }   
                         }
+                } else {
+    			    echo '<p class="loggedOut">Oops! You are not signed in!<p>';
+				}
                     
 
-                ?>
+            ?>
         </body>
 
     </main>
