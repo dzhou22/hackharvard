@@ -68,7 +68,8 @@ a.header-logo img {
 	transition: 0.3s;
 	border-radius: 5px; /* 5px rounded corners */
 	width: 250px;
-	margin-top: 50px;
+	margin-top: 25px;
+	margin-bottom: 25px;
 	margin-left: 50px;
 	float: left;
   }
