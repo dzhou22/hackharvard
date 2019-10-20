@@ -27,7 +27,7 @@
         <header style="width: 100%">
         	<nav class="nav-header-main">
         		<a class="header-logo" href="index.php">
-        			<img src="img/logo.jpeg" alt="logo">
+        			<img src="img/logopen2-01.png" alt="logo">
         		</a>
         		<ul>
 					<?php
