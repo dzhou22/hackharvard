@@ -1,5 +1,5 @@
 nav {
-	background-color: #6C6C6C;
+	background-color: #A51C30 ;
 	float: left;
 	width: 100%;
 	position: fixed;
@@ -13,7 +13,7 @@ nav.nav-header-main ul {
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-	background-color: #6C6C6C;
+	background-color: #A51C30 ;
 }
 
 nav.nav-header-main li {
@@ -22,7 +22,7 @@ nav.nav-header-main li {
 
 nav.nav-header-main li a {
 	display: block;
-	color: white;
+	color: rgb(255, 255, 255);
 	text-align: center;
 	padding: 16px 16px;
 	text-decoration: none;
@@ -43,17 +43,17 @@ a.header-signup {
 }
 
 a.header-signup:hover {
-	background-color: #111;
+	background-color: rgb(138, 25, 42);
 }
 
 li.active {
-	background-color: #EB001B;
+	background-color: rgb(223, 22, 22);
 	color: white;
 }
 
 /* Change the link color to #111 (black) on hover */
 nav.nav-header-main li a:hover {
-	background-color: #111;
+	background-color: rgb(133, 26, 42);
 } 
 
 a.header-logo img {
