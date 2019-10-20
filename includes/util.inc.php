@@ -4,8 +4,7 @@ function class_id_to_name($classid, $conn) {
   	$sql = "SELECT nameClasses FROM classes WHERE idClasses=?";
 	$stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("Location: ../index.php?error=sqlerror");
-        exit();
+	    return '';
     } else { // statement is valid
         mysqli_stmt_bind_param($stmt, "s", $classid);
         mysqli_stmt_execute($stmt);
@@ -20,8 +19,7 @@ function class_name_to_id($classname, $conn) {
   	$sql = "SELECT idClasses FROM classes WHERE nameClasses=?";
 	$stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("Location: ../index.php?error=sqlerror");
-        exit();
+	    return '';
     } else { // statement is valid
         mysqli_stmt_bind_param($stmt, "s", $classname);
         mysqli_stmt_execute($stmt);
@@ -68,6 +66,23 @@ function get_profile_picture($conn) {
     }
 }
 
-function get_classes($id, $conn) {
-    
+function get_classes($username, $role, $conn) {
+  	$sql = "SELECT nameClasses FROM enrollments WHERE uidUsers=? AND userType=?";
+	$stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+	    return '';
+    } else { // statement is valid
+        mysqli_stmt_bind_param($stmt, "ss", $username, $role);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+	}
+	$classstr = '';
+	while ($res = mysqli_fetch_assoc($result)) {
+	    if ($classstr == '') {
+		    $classstr = $res['nameClasses'];
+		} else {
+		    $classstr = $classstr.', '.$res['nameClasses'];
+		}
+	}
+	return $classstr;
 }

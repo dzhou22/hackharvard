@@ -29,12 +29,14 @@
                             
                             if ($tutor['userType']=='tutor' || $tutor['userType']=='both') {
                                 $profile_picture = get_profile_picture($conn);
+								$classstr = get_classes($tutor['uidUsers'], 'tutor', $conn);
                                 
                                 echo '<div class="card">';
                                     echo '<img src='.$profile_picture.' alt="Avatar" style="width:100%">';
                                     echo '<div class="container">';
                                         echo '<h4><b> Username: '.$tutor['uidUsers'].'</b></h4>';
                                         echo '<p> Email: '.$tutor['emailUsers'].'</p>';
+										echo '<p> Classes: '.$classstr.'</p>';
                                     echo '</div>';
                                 echo '</div>';
                             }   

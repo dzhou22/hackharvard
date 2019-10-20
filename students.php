@@ -34,12 +34,14 @@
                         echo "</tr>";
 */                             
                         $profile_picture = get_profile_picture($conn);
+						$classstr = get_classes($student['uidUsers'], 'student', $conn);
                         
                         echo '<div class="card">';
                             echo '<img src='.$profile_picture.' alt="Avatar" style="width:100%">';
                             echo '<div class="container">';
                                 echo '<h4><b> Username: '.$student['uidUsers'].'</b></h4>';
                                 echo '<p> Email: '.$student['emailUsers'].'</p>';
+								echo '<p> Classes: '.$classstr.'</p>';
                             echo '</div>';
                         echo '</div>';
                         
