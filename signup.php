@@ -5,34 +5,34 @@
 	<main>
 		<div>
 			<section>
-                <h1 class="header2">Sign Up</h1>
+                <h1 class="header2Centered">Sign Up</h1>
                 <?php
                     if (isset($_GET["error"])) {
                         if ($_GET["error"] == "emptyfields") {
-                            echo '<p>Please fill in all the fields.</p>';
+                            echo '<p class="error">Please fill in all the fields.</p>';
                         } else if ($_GET['error'] == "invalidmailusername") {
-                            echo '<p>Invalid e-mail address and username. Username must use only alphanumeric characters.</p>';
+                            echo '<p class="error">Invalid e-mail address and username. Username must use only alphanumeric characters.</p>';
                         } else if ($_GET['error'] == "invalidmail") {
-                            echo '<p>Invalid e-mail.</p>';
+                            echo '<p class="error">Invalid e-mail.</p>';
                         } else if ($_GET['error'] == "invalidusername") {
-                            echo '<p>Username must use only alphanumeric characters.</p>';
+                            echo '<p class="error">Username must use only alphanumeric characters.</p>';
                         } else if ($_GET['error'] == "passwordcheck") {
-                            echo '<p>Passwords do not match.</p>';
+                            echo '<p class="error">Passwords do not match.</p>';
                         } else if ($_GET['error'] == "invalidrole") {
-                            echo '<p>Please select your role.</p>';
+                            echo '<p class="error">Please select your role.</p>';
                         } else if ($_GET['error'] == "usernametaken") {
-                            echo '<p>Username/email is taken. Please choose another.</p>';
+                            echo '<p class="error">Username/email is taken. Please choose another.</p>';
                         }
                     } else if (isset($_GET["signup"])) {
                         if ($_GET["signup"] == "success") {
-                            echo '<p>Signup successful!</p>';
+                            echo '<p class="success">Signup successful!</p>';
                         }
                     } 
                 ?>
-				<form action="includes/signup.inc.php" method = "post">
+				<form class="formCentered" action="includes/signup.inc.php" method = "post">
                     <input class="inputRed" type="text" name="username" placeholder="Username">
                     <input class="inputRed" type="text" name="mail" placeholder="E-mail">
-					<select class="custom-select" name="role">
+					<select name="role">
 						<option disabled selected value="none">- Select Role -</option>
 						<option value="student">Student</option>
 						<option value="tutor">Tutor</option>
