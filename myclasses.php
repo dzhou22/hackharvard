@@ -31,7 +31,7 @@
 	<main>
 		<div>
 			<section>
-                <h1>My Classes</h1>
+                <h1 class="header2">My Classes</h1>
 	    		    <?php
 	    			    if (isset($_SESSION['userId'])) {
 						   	echo '<h2>Add Classes</h2>';
@@ -107,7 +107,7 @@
 								echo '</table>';
 							}
 	    			    } else {
-						  	echo "<p>Please log in</p>";
+						  	echo '<p class="loggedOut">Oops! You are not signed in!</p>';
 	    				}
 	    			?>
 			</section>

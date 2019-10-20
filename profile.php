@@ -10,14 +10,14 @@
                 <?php
 
                     if (!isset($_SESSION['userId'])) {
-                        echo "Please sign in.";
+                        echo '<p class="loggedOut">Oops! You are not signed in!</p>';
                         
                         /* echo "<form action='upload.php' method='POST' enctype='multipart/form-data'>
                             <input type='file' name='file'>
                             <button type='submit' name='submit-photo'>UPLOAD</button>
                             </form>"; */
                     } else {
-                        echo "<h1>Welcome, ".$_SESSION['userUid']."</h1>";
+                        
                         // display profile picture:
                         $sql = "SELECT uidUsers FROM users WHERE uidUsers=?";
                         $stmt = mysqli_stmt_init($conn);
@@ -45,14 +45,14 @@
                                     while ($rowImg = mysqli_fetch_assoc($resultImg)) {
                                         echo "<div>";
                                             if ($rowImg['status'] == 0) {
-                                                echo "<img src='uploads/profile".$id.".jpg?'".mt_rand().">";
+                                                echo '<img class="square" src="uploads/profile'.$id.'.jpg?"'.mt_rand().'>';
                                             } else {
-                                                echo "<img src='uploads/profiledefault.jpg'>";
+                                                echo '<img class="square" src="uploads/profiledefault.jpg">';
                                             }
                                         echo "</div>";
                                     }
                                 }
-                                
+                                echo '<h1 class="header">Welcome, '.$_SESSION['userUid'].'</h1>';
                             } else {
                                 echo "Error: User not found.";
                             }
