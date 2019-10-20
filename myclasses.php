@@ -28,7 +28,7 @@
 	    			    if (isset($_SESSION['userId'])) {
 						   	echo '<h2 class="header2Centered">Add Classes</h2>';
 							// Form to add a class
-							echo '<form action="includes/addclass.inc.php" method="post">';
+							echo '<form class="formCentered2" action="includes/addclass.inc.php" method="post">';
 	            			echo '<select name="classid">';
 	            			echo '<option disabled selected value="none">- Select Class -</option>';
 							while ($res = mysqli_fetch_assoc($result_classes)) {
@@ -48,7 +48,7 @@
 							echo '</form>';
 
 							// Form to create new class in database
-							echo '<form action="includes/createclass.inc.php" method="post">
+							echo '<form class="formCentered2" action="includes/createclass.inc.php" method="post">
 							    <input class="inputRed" type="text" name="classname" placeholder="New Class Name...">
 								<button class="buttonRed" type="submit" name="createclass-submit">Create</button>
 								</form>';
