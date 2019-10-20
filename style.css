@@ -1,5 +1,5 @@
 nav {
-	background-color: #333;
+	background-color: #6C6C6C;
 	float: left;
 	width: 100%;
 	position: fixed;
@@ -13,7 +13,7 @@ nav.nav-header-main ul {
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-	background-color: #333;
+	background-color: #6C6C6C;
 }
 
 nav.nav-header-main li {
@@ -47,7 +47,7 @@ a.header-signup:hover {
 }
 
 li.active {
-	background-color: #4CAF50;
+	background-color: #EB001B;
 	color: white;
 }
 
