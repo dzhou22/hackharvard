@@ -41,8 +41,8 @@
 		
             <?php
         		if (isset($_SESSION['userId'])) {
-					echo '<form action="includes/searchtutors.inc.php" method="post">';
-           			echo '<select name="classid">';
+					echo '<form class="formCentered2" action="includes/searchtutors.inc.php" method="post">';
+           			echo '<select class="selectRed" name="classid">';
 					$selectedstr = selected_option('any', $search_classid);
            			echo '<option '.$selectedstr.' value="any">Any</option>';
 					while ($res = mysqli_fetch_assoc($result_classes)) {
@@ -50,7 +50,7 @@
 					    echo '<option '.$selectedstr.' value='.$res['idClasses'].'>'.$res['nameClasses'].'</option>';
 					}
            			echo '</select>';
-					echo '<button type="submit" name="searchtutors-submit">Select</button>';
+					echo '<button class="buttonRed" type="submit" name="searchtutors-submit">Select</button>';
 					echo '</form>';
 
                     
