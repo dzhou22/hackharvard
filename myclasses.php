@@ -26,7 +26,7 @@
 			<section>
 	    		    <?php
 	    			    if (isset($_SESSION['userId'])) {
-						   	echo '<h2>Add Classes</h2>';
+						   	echo '<h2 class="header2Centered">Add Classes</h2>';
 							// Form to add a class
 							echo '<form action="includes/addclass.inc.php" method="post">';
 	            			echo '<select name="classid">';
@@ -44,17 +44,17 @@
 								echo '<option value="tutor">Tutor</option>';
 							}
 							echo '</select>';
-							echo '<button type="submit" name="addclass-submit">Add</button>';
+							echo '<button  class="buttonRed" type="submit" name="addclass-submit">Add</button>';
 							echo '</form>';
 
 							// Form to create new class in database
 							echo '<form action="includes/createclass.inc.php" method="post">
-							    <input type="text" name="classname" placeholder="New Class Name...">
-								<button type="submit" name="createclass-submit">Create</button>
+							    <input class="inputRed" type="text" name="classname" placeholder="New Class Name...">
+								<button class="buttonRed" type="submit" name="createclass-submit">Create</button>
 								</form>';
 
 						    if ($_SESSION['userType'] == 'student' || $_SESSION['userType'] == 'both') {
-							    echo '<h2>My Enrolled Classes</h2>';
+							    echo '<h2 class="header2Centered">My Enrolled Classes</h2>';
 								echo '<table width="600" border="1" cellpadding="1" cellspacing="1">
                                     <tr>
                                         <th>Class</th>
@@ -68,7 +68,7 @@
 										echo '<input type="hidden" name="classid" value='
 											.class_name_to_id($res['nameClasses'], $conn).'>';
 										echo '<input type="hidden" name="role" value="student">';
-    			                        echo '<button type="submit" name="removeclass-submit">Remove</button>
+    			                        echo '<button  class="buttonRed" type="submit" name="removeclass-submit">Remove</button>
     			            				</form></td>';
                                         echo "</tr>";
                                     }   
@@ -76,7 +76,7 @@
 								echo '</table>';
 							}
 							if ($_SESSION['userType'] == 'tutor' || $_SESSION['userType'] == 'both') {
-							    echo '<h2>My Tutor Classes</h2>';
+							    echo '<h2 class="header2Centered">My Tutor Classes</h2>';
 								echo '<table width="600" border="1" cellpadding="1" cellspacing="1">
                                     <tr>
                                         <th>Class</th>
@@ -91,7 +91,7 @@
 										echo '<input type="hidden" name="classid" value='
 											.class_name_to_id($res['nameClasses'], $conn).'>';
 										echo '<input type="hidden" name="role" value="tutor">';
-    			                        echo '<button type="submit" name="removeclass-submit">Remove</button>
+    			                        echo '<button  class="buttonRed" type="submit" name="removeclass-submit">Remove</button>
     			            				</form></td>';
                                         echo "</tr>";
                                     }   

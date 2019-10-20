@@ -61,60 +61,60 @@
                         //Error handling:
                         if (isset($_GET["error"])) {
                             if ($_GET['error'] == "invalidusername") {
-                                echo '<p>Username must use only alphanumeric characters.</p>';
+                                echo '<p class="error">Username must use only alphanumeric characters.</p>';
                             } else if ($_GET['error'] == "invalidmail") {
-                                echo '<p>Invalid e-mail.</p>';
+                                echo '<p class="error">Invalid e-mail.</p>';
                             } else if ($_GET['error'] == "invalidusername") {
-                                echo '<p>Username must use only alphanumeric characters.</p>';
+                                echo '<p class="error">Username must use only alphanumeric characters.</p>';
                             } else if ($_GET['error'] == "passwordcheck") {
-                                echo '<p>Passwords do not match.</p>';
+                                echo '<p class="error">Passwords do not match.</p>';
                             } else if ($_GET['error'] == "wrongpwd") {
-                                echo '<p>Old password incorrect.</p>';
+                                echo '<p class="error">Old password incorrect.</p>';
                             } else if ($_GET['error'] == "usernametaken") {
-                                echo '<p>Username/email is taken. Please choose another.</p>';
+                                echo '<p class="error">Username/email is taken. Please choose another.</p>';
                             } else if ($_GET['error'] == "nouse") {
-                                echo '<p>User does not exist.</p>';
+                                echo '<p class="error">User does not exist.</p>';
                             }
                         } else if (isset($_GET["update"])) {
                             if ($_GET["update"] == "username") {
-                                echo '<p>Username updated!</p>';
+                                echo '<p class="success">Username updated!</p>';
                             } else if ($_GET["update"] == "email") {
-                                echo '<p>Email updated!</p>';
+                                echo '<p  class="success">Email updated!</p>';
                             }
                         } 
-                        echo '<h2>Update Personal Info</h2>
+                        echo '<h2 class="header3Centered">Update Personal Info</h2>
                 
                         <!-- Profile Picture -->
-                        <form action="upload.php" method="POST" enctype="multipart/form-data">
+                        <form class="formCentered2" action="upload.php" method="POST" enctype="multipart/form-data">
                             <input type="file" name="file">
-                            <button type="submit" name="submit-photo">UPLOAD</button>
+                            <button class="buttonRed" type="submit" name="submit-photo">Upload</button>
                         </form>
         
-                        <form action="includes/updateprofile.inc.php" method = "post">
-                            <input type="text" name="username" placeholder="Username">
-                            <button type="submit" name="update-submit">Update Username</button>
+                        <form class="formCentered2" action="includes/updateprofile.inc.php" method = "post">
+                            <input class="inputRed" type="text" name="username" placeholder="Username">
+                            <button class="buttonRed" type="submit" name="update-submit">Update Username</button>
                         </form>
         
-                        <form action="includes/updateprofile.inc.php" method = "post">
-                            <input type="text" name="mail" placeholder="E-mail">
-                            <button type="submit" name="update-submit">Update E-mail</button>
+                        <form class="formCentered2" action="includes/updateprofile.inc.php" method = "post">
+                            <input class="inputRed" type="text" name="mail" placeholder="E-mail">
+                            <button class="buttonRed" type="submit" name="update-submit">Update E-mail</button>
                         </form>
         
-                        <form action="includes/updateprofile.inc.php" method = "post">   
+                        <form class="formCentered2" action="includes/updateprofile.inc.php" method = "post">   
                             <select name="role">
                                 <option disabled selected value="none">- Select Role-</option>
                                 <option value="student">Student</option>
                                 <option value="tutor">Tutor</option>
                                 <option value="both">Both</option>
                             </select>
-                            <button type="submit" name="update-submit">Update Role</button>
+                            <button class="buttonRed" type="submit" name="update-submit">Update Role</button>
                         </form>
         
-                        <form action="includes/updateprofile.inc.php" method = "post">  
-                            <input type="password" name="oldPwd" placeholder="Old Password">
-                            <input type="password" name="newPwd" placeholder="New Password">
-                            <input type="password" name="newPwd2" placeholder="Re-type Password">
-                            <button type="submit" name="update-submit">Update Password</button>
+                        <form class="formCentered2" action="includes/updateprofile.inc.php" method = "post">  
+                            <input class="inputRed" type="password" name="oldPwd" placeholder="Old Password">
+                            <input class="inputRed" type="password" name="newPwd" placeholder="New Password">
+                            <input class="inputRed" type="password" name="newPwd2" placeholder="Re-type Password">
+                            <button class="buttonRed" type="submit" name="update-submit">Update Password</button>
                         </form>';
                     }
                     
