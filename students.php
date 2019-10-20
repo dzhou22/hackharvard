@@ -12,6 +12,7 @@
         $result = mysqli_stmt_get_result($stmt);
     }
     require "header.php";
+    require "includes/util.inc.php"
 
 ?>
 
@@ -20,28 +21,33 @@
             <title>Students</title>
         </head>
         <body>
-            <table width="600" border="1" cellpadding="1" cellspacing="1">
-                <tr>
-                    <th>Username</th>
-                    <th>Email</th>
-                </tr>
 
-                <?php
+            <?php
 
+                
+                while($student=mysqli_fetch_assoc($result)) {
                     
-                        while($student=mysqli_fetch_assoc($result)) {
-                            
-                            if ($student['userType']=='student' || $student['userType']=='both') {
-                                echo "<tr>";
-                                echo "<td>".$student['uidUsers']."</td>";
-                                echo "<td>".$student['emailUsers']."</td>";
-                                echo "</tr>";
-                            }   
-                        }
-                    
+                    if ($student['userType']=='student' || $student['userType']=='both') {
+/*                                 echo "<tr>";
+                        echo "<td>".$student['uidUsers']."</td>";
+                        echo "<td>".$student['emailUsers']."</td>";
+                        echo "</tr>";
+*/                             
+                        $profile_picture = get_profile_picture($conn);
+                        
+                        echo '<div class="card">';
+                            echo '<img src='.$profile_picture.' alt="Avatar" style="width:100%">';
+                            echo '<div class="container">';
+                                echo '<h4><b> Username: '.$student['uidUsers'].'</b></h4>';
+                                echo '<p> Email: '.$student['emailUsers'].'</p>';
+                            echo '</div>';
+                        echo '</div>';
+                        
+                    }   
+                }
+                
 
-                ?>
-            </table>
+            ?>
         </body>
 
     </main>

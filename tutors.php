@@ -12,6 +12,7 @@
         $result = mysqli_stmt_get_result($stmt);
     }
     require "header.php";
+    require "includes/util.inc.php";
 
 ?>
 
@@ -20,11 +21,6 @@
             <title>Tutors</title>
         </head>
         <body>
-            <table width="600" border="1" cellpadding="1" cellspacing="1">
-                <tr>
-                    <th>Username</th>
-                    <th>Email</th>
-                </tr>
 
                 <?php
 
@@ -32,16 +28,20 @@
                         while($tutor=mysqli_fetch_assoc($result)) {
                             
                             if ($tutor['userType']=='tutor' || $tutor['userType']=='both') {
-                                echo "<tr>";
-                                echo "<td>".$tutor['uidUsers']."</td>";
-                                echo "<td>".$tutor['emailUsers']."</td>";
-                                echo "</tr>";
+                                $profile_picture = get_profile_picture($conn);
+                                
+                                echo '<div class="card">';
+                                    echo '<img src='.$profile_picture.' alt="Avatar" style="width:100%">';
+                                    echo '<div class="container">';
+                                        echo '<h4><b> Username: '.$tutor['uidUsers'].'</b></h4>';
+                                        echo '<p> Email: '.$tutor['emailUsers'].'</p>';
+                                    echo '</div>';
+                                echo '</div>';
                             }   
                         }
                     
 
                 ?>
-            </table>
         </body>
 
     </main>
