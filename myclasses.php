@@ -55,9 +55,9 @@
 
 						    if ($_SESSION['userType'] == 'student' || $_SESSION['userType'] == 'both') {
 							    echo '<h2 class="header2Centered">My Enrolled Classes</h2>';
-								echo '<table width="600" border="1" cellpadding="1" cellspacing="1">
+								echo '<table cellpadding="1" cellspacing="1">
                                     <tr>
-                                        <th>Class</th>
+                                        <th style="width: 200px; font-family: \'TruenoBold\'; font-size: 18px;">Class</th>
                                         <th></th>
                                     </tr>';
                                 while($res=mysqli_fetch_assoc($result_enroll)) {
@@ -77,9 +77,9 @@
 							}
 							if ($_SESSION['userType'] == 'tutor' || $_SESSION['userType'] == 'both') {
 							    echo '<h2 class="header2Centered">My Tutor Classes</h2>';
-								echo '<table width="600" border="1" cellpadding="1" cellspacing="1">
+								echo '<table cellpadding="1" cellspacing="1">
                                     <tr>
-                                        <th>Class</th>
+                                        <th style="width: 200px; font-family: \'TruenoBold\'; font-size: 18px;">Class</th>
                                         <th></th>
                                     </tr>';
 								mysqli_data_seek($result_enroll, 0);

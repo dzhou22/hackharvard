@@ -251,3 +251,21 @@ div {
 	margin-right: auto;
 	padding-left: 6em;
 }
+
+table {
+	border-collapse: collapse;
+	border:none;
+	margin-left: auto;
+	margin-right: auto;
+  }
+  
+  th, td {
+	text-align: left;
+	border:none;
+	padding: 8px;
+	font-family: "TruenoRegular";
+	font-size: 16px;
+	color: #414141
+  }
+  
+  tr:nth-child(even) {background-color: #f2f2f2;}
