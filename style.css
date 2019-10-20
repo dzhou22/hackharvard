@@ -1,3 +1,4 @@
+
 nav {
 	background-color: #A51C30 ;
 	float: left;
@@ -5,6 +6,7 @@ nav {
 	position: fixed;
 	top: 0;
 	left: 0;
+	font-family: 'TruenoSemiBold';
 }
 
 nav.nav-header-main ul {
@@ -14,6 +16,7 @@ nav.nav-header-main ul {
 	padding: 0;
 	overflow: hidden;
 	background-color: #A51C30 ;
+	font-family: 'TruenoSemiBold';
 }
 
 nav.nav-header-main li {
@@ -26,6 +29,7 @@ nav.nav-header-main li a {
 	text-align: center;
 	padding: 16px 16px;
 	text-decoration: none;
+	text-transform: uppercase;
 }
 
 form.header-form {
@@ -85,5 +89,143 @@ a.header-logo img {
 }
 
 .top-whitespace {
-    margin-bottom: 30px;
+    margin-bottom: 3cm;
 }
+
+div {
+	font-family: 'Lora', serif;
+	font-size: 19px;
+}
+
+.cardName{
+	font-family: 'TruenoBold';
+	font-size: 20px;
+	color: black;
+}
+
+.cardEmail {
+	font-family: "TruenoLight";
+	font-size: 16px;
+	color: #414141;
+}
+
+.cardClasses {
+	font-family: "TruenoRegular";
+	font-size: 16px;
+	color: #414141
+}
+
+.square {
+	object-fit: cover;
+	width: 300px;
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+}
+
+.header {
+	font-family: 'TruenoBold';
+	font-size:80px;
+	color: black;
+	text-align: center;
+}
+
+.button {
+	background-color: #F9F9F9;
+	border: none;
+	color: #414141;
+	padding: 5px 10px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 14px;
+	font-family: "TruenoLight";
+  }
+
+  .input {
+	border: none;
+	border-bottom: 2px solid rgb(255, 255, 255);
+	background-color:rgba(0, 0, 0, 0);
+	font-family: "TruenoLight";
+	font-size: 10px;
+  }
+
+.inputRed {
+	border: none;
+	border-bottom: 2px solid #A51C30;
+	background-color:rgba(0, 0, 0, 0);
+	font-family: "TruenoLight";
+	font-size: 16px;
+}
+
+.buttonRed {
+	background-color: #A51C30;
+	border: none;
+	color: #F9F9F9;
+	padding: 8px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 14px;
+	font-family: "TruenoLight";
+  }
+
+  .header2 {
+	font-family: 'TruenoBold';
+	font-size:60px;
+	color: black;
+}
+
+.loggedOut {
+	font-family: 'TruenoBold';
+	font-size: 30px;
+	color: black;
+	text-align: center;
+}
+
+  /* Style The Dropdown Button */
+.dropbtn {
+	background-color: #4CAF50;
+	color: white;
+	padding: 16px;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+	position: relative;
+	display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #f1f1f1}
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+	display: block;
+  }
+  
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {
+	background-color: #3e8e41;
+  }

@@ -67,9 +67,9 @@
                                 echo '<div class="card">';
                                     echo '<img src='.$profile_picture.' alt="Avatar" style="width:100%">';
                                     echo '<div class="container">';
-                                        echo '<h4><b> Username: '.$tutor['uidUsers'].'</b></h4>';
-                                        echo '<p> Email: '.$tutor['emailUsers'].'</p>';
-										echo '<p> Classes: '.$classstr.'</p>';
+                                        echo '<h4 class="cardName"><b>'.$tutor['uidUsers'].'</b></h4>';
+                                        echo '<p class="cardEmail">'.$tutor['emailUsers'].'</p>';
+										echo '<p class="cardClasses"> Classes: '.$classstr.'</p>';
                                     echo '</div>';
                                 echo '</div>';
                             }   

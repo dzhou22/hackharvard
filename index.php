@@ -12,7 +12,7 @@
    	    		    if (isset($_SESSION['userId'])) {
    	    			    echo '<p>You are logged in!<p>';
    	    			} else {
-   	    			    echo '<p>You are logged out!<p>';
+   	    			    echo '<p class="loggedOut">Oops! You are logged out!<p>';
    	    			}
    	    		?>
 			</div>

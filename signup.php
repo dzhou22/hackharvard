@@ -5,7 +5,7 @@
 	<main>
 		<div>
 			<section>
-                <h1>Signup</h1>
+                <h1 class="header2">Sign Up</h1>
                 <?php
                     if (isset($_GET["error"])) {
                         if ($_GET["error"] == "emptyfields") {
@@ -30,17 +30,17 @@
                     } 
                 ?>
 				<form action="includes/signup.inc.php" method = "post">
-                    <input type="text" name="username" placeholder="Username">
-                    <input type="text" name="mail" placeholder="E-mail">
-					<select name="role">
+                    <input class="inputRed" type="text" name="username" placeholder="Username">
+                    <input class="inputRed" type="text" name="mail" placeholder="E-mail">
+					<select class="custom-select" name="role">
 						<option disabled selected value="none">- Select Role -</option>
 						<option value="student">Student</option>
 						<option value="tutor">Tutor</option>
 						<option value="both">Both</option>
 					</select>
-                    <input type="password" name="pwd" placeholder="Password">
-                    <input type="password" name="pwd2" placeholder="Retype Password">
-                    <button type="submit" name="signup-submit">Signup</button>
+                    <input class="inputRed" type="password" name="pwd" placeholder="Password">
+                    <input class="inputRed" type="password" name="pwd2" placeholder="Retype Password">
+                    <button class="buttonRed" type="submit" name="signup-submit">Signup</button>
                 </form>
 			</section>
 		</div>

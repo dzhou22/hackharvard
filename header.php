@@ -21,6 +21,7 @@
 		<meta name=viewport content="width-device-width, initial-scale=1">
 		<title></title>
 		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/trueno" type="text/css"/>
 	</head>
 	<body>
         <header style="width: 100%">
@@ -40,19 +41,19 @@
 			    <?php
 				    if (isset($_SESSION['userId'])) {
 				        echo '<form class="header-form" action="includes/logout.inc.php" method="post">
-				            <button type="submit" name="logout-submit">Logout</button>
+				            <button class="button" type="submit" name="logout-submit">Logout</button>
 				            </form>';
 				    } else {
 				        echo '<a class="header-signup" href="signup.php">Signup</a>';
 				        echo '<form class="header-form" action="includes/login.inc.php" method="post">
-							<input type="text" name="mailuid" placeholder="Username/E-mail...">
-				  			<input type="password" name="pwd" placeholder="Password...">
-				  			<button type="submit" name="login-submit">Login</button>
+							<input class="input" type="text" name="mailuid" placeholder="Username/E-mail...">
+				  			<input class="input" type="password" name="pwd" placeholder="Password...">
+				  			<button class="button" type="submit" name="login-submit">Login</button>
 				            </form>';
 					}
 				?>
         	</nav>
-			<p class="top-whitespace">jj</p>
+			<p class="top-whitespace"></p>
         </header>
 	</body>
 </html>
