@@ -2,6 +2,9 @@ nav {
 	background-color: #333;
 	float: left;
 	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
 }
 
 nav.nav-header-main ul {
@@ -70,13 +73,16 @@ a.header-logo img {
 	float: left;
   }
   
-  /* On mouse-over, add a deeper shadow */
-  .card:hover {
+/* On mouse-over, add a deeper shadow */
+.card:hover {
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  }
-  
-  /* Add some padding inside the card container */
-  .container {
-	padding: 2px 16px;
-  }
+}
 
+/* Add some padding inside the card container */
+.container {
+	padding: 2px 16px;
+}
+
+.top-whitespace {
+    margin-bottom: 30px;
+}
