@@ -40,48 +40,51 @@
         <body>
 
             <?php
-				echo '<form action="includes/searchstudents.inc.php" method="post">';
-       			echo '<select name="classid">';
-				$selectedstr = selected_option('any', $search_classid);
-       			echo '<option '.$selectedstr.' value="any">Any</option>';
-				while ($res = mysqli_fetch_assoc($result_classes)) {
-					$selectedstr = selected_option($res['idClasses'], $search_classid);
-				    echo '<option '.$selectedstr.' value='.$res['idClasses'].'>'.$res['nameClasses'].'</option>';
-				}
-       			echo '</select>';
-				echo '<button type="submit" name="searchstudents-submit">Select</button>';
-				echo '</form>';
-
-                
-                while($student=mysqli_fetch_assoc($result)) {
-					if ($search_classid !== 'any') {
-					    $is_in_class = user_in_class($search_classid, $student['uidUsers'], 'student', $conn);
-						if (!$is_in_class) {
-						    continue;
-						}
-					}
+        		if (isset($_SESSION['userId'])) {
+	    			echo '<form action="includes/searchstudents.inc.php" method="post">';
+           			echo '<select name="classid">';
+	    			$selectedstr = selected_option('any', $search_classid);
+           			echo '<option '.$selectedstr.' value="any">Any</option>';
+	    			while ($res = mysqli_fetch_assoc($result_classes)) {
+	    				$selectedstr = selected_option($res['idClasses'], $search_classid);
+	    			    echo '<option '.$selectedstr.' value='.$res['idClasses'].'>'.$res['nameClasses'].'</option>';
+	    			}
+           			echo '</select>';
+	    			echo '<button type="submit" name="searchstudents-submit">Select</button>';
+	    			echo '</form>';
+	    
                     
-                    if ($student['userType']=='student' || $student['userType']=='both') {
-/*                                 echo "<tr>";
-                        echo "<td>".$student['uidUsers']."</td>";
-                        echo "<td>".$student['emailUsers']."</td>";
-                        echo "</tr>";
-*/                             
-                        $profile_picture = get_profile_picture($conn);
-						$classstr = get_classes($student['uidUsers'], 'student', $conn);
+                    while($student=mysqli_fetch_assoc($result)) {
+	    				if ($search_classid !== 'any') {
+	    				    $is_in_class = user_in_class($search_classid, $student['uidUsers'], 'student', $conn);
+	    					if (!$is_in_class) {
+	    					    continue;
+	    					}
+	    				}
                         
-                        echo '<div class="card">';
-                            echo '<img src='.$profile_picture.' alt="Avatar" style="width:100%">';
-                            echo '<div class="container">';
-                                echo '<h4 class="cardName"><b>'.$student['uidUsers'].'</b></h4>';
-                                echo '<p class="cardEmail">'.$student['emailUsers'].'</p>';
-								echo '<p class="cardClasses"> Classes: '.$classstr.'</p>';
+                        if ($student['userType']=='student' || $student['userType']=='both') {
+/*                                     echo "<tr>";
+                            echo "<td>".$student['uidUsers']."</td>";
+                            echo "<td>".$student['emailUsers']."</td>";
+                            echo "</tr>";
+*/                                 
+                            $profile_picture = get_profile_picture($conn);
+	    					$classstr = get_classes($student['uidUsers'], 'student', $conn);
+                            
+                            echo '<div class="card">';
+                                echo '<img src='.$profile_picture.' alt="Avatar" style="width:100%">';
+                                echo '<div class="container">';
+                                    echo '<h4 class="cardName"><b>'.$student['uidUsers'].'</b></h4>';
+                                    echo '<p class="cardEmail">'.$student['emailUsers'].'</p>';
+	    							echo '<p class="cardClasses"> Classes: '.$classstr.'</p>';
+                                echo '</div>';
                             echo '</div>';
-                        echo '</div>';
-                        
-                    }   
-                }
-                
+                            
+                        }   
+                	}
+                } else {
+    			    echo '<p class="loggedOut">Oops! You are not signed in!<p>';
+				}
 
             ?>
         </body>
